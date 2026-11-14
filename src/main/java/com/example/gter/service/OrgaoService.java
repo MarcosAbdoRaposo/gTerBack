@@ -61,6 +61,12 @@ public class OrgaoService {
         if (!orgaoRepository.existsById(ideOrgao)) {
             throw new EntityNotFoundException("Órgão não encontrado com o ID: " + ideOrgao);
         }
+
+        //TODO Opcional: Verifique se existem contratos vinculados antes de deletar
+        // (Você precisaria ter um contratoRepository injetado no service)
+        // if (contratoRepository.existsByOrgao(orgao)) {
+        //     throw new IllegalStateException("Não é possível excluir o órgão pois existem contratos vinculados.");
+        // }
         orgaoRepository.deleteById(ideOrgao);
     }
 }

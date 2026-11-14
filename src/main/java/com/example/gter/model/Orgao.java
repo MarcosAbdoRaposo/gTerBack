@@ -6,6 +6,7 @@ import java.util.UUID;
 
 @Entity
 public class Orgao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private java.util.UUID ideOrgao;
@@ -45,5 +46,14 @@ public class Orgao {
     public void setNumCNPJ(String numCNPJ) {
         this.numCNPJ = numCNPJ;
     }
+
+    public String getNumCNPJFormatado() {
+        return  numCNPJ.substring(0, 2) + "." +
+                numCNPJ.substring(2, 5) + "." +
+                numCNPJ.substring(5, 8) + "/" +
+                numCNPJ.substring(8, 12) + "-" +
+                numCNPJ.substring(12, 14);
+    }
+
 }
 
