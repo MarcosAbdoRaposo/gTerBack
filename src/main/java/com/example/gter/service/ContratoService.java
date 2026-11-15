@@ -67,7 +67,7 @@ public class ContratoService {
             throw new EntityNotFoundException("Órgão não encontrado com o ID: " + ideContrato);
         }
 
-        //TODO Opcional: Verifique se existem Postos de Trabalho vinculados antes de deletar
+        //TODO Opcional: Verifique se existem Postos de Trabalho vinculados antes de excluir
         // (Será necessário ter um PostoTrabalhoRepository injetado no service)
         // if (PostoTrabalhoRepository.existsByContrato(contrato)) {
         //     throw new IllegalStateException("Não é possível excluir o Contrato  pois existem postos de trabalho vinculados.");
