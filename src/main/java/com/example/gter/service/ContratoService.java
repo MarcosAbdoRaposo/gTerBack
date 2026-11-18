@@ -1,6 +1,7 @@
 package com.example.gter.service;
 
 import com.example.gter.model.Contrato;
+import com.example.gter.model.Terceirizado;
 import com.example.gter.repository.ContratoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,22 @@ public class ContratoService {
     public List<Contrato> listarTodos() {
         return contratoRepository.findAll();
     }
+
+
+    @Transactional(readOnly = true)
+    public List<Contrato> buscarPorOrgao(UUID ideOrgao) {
+        List<Contrato> contratos = contratoRepository.findByOrgao_IdeOrgao(ideOrgao);
+
+
+        /*
+        if (contratos.isEmpty()) {
+            throw new EntityNotFoundException("Nenhum contrato encontrado para o órgão com o ID: " + ideOrgao);
+        }
+        */
+
+        return contratos;
+    }
+
 
     @Transactional(readOnly = true)
     public Contrato buscarPorId(UUID ideContrato) {

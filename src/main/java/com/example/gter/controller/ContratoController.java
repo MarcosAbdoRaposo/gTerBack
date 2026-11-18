@@ -32,6 +32,18 @@ public class ContratoController {
         return ResponseEntity.ok(contrato);
     }
 
+    /**
+     * Endpoint para buscar contratos pelo ID (UUID) do Órgão.
+     * Exemplo de URL GET: /contrato/orgao/123e4567-e89b-12d3-a456-426614174000
+     */
+    @GetMapping("/orgao/{ideOrgao}")
+    public ResponseEntity<List<Contrato>> buscarPorOrgao(@PathVariable UUID ideOrgao) {
+        List<Contrato> contratos = contratoService.buscarPorOrgao(ideOrgao);
+
+        // Retorna 200 OK com a lista (mesmo que vazia)
+        return ResponseEntity.ok(contratos);
+    }
+
     @PostMapping
     public ResponseEntity<Contrato> incluir(@RequestBody Contrato contrato) {
         Contrato novoContrato = contratoService.incluir(contrato);
