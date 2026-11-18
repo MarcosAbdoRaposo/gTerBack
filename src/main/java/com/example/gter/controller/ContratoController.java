@@ -27,8 +27,8 @@ public class ContratoController {
     }
 
     @GetMapping("/{ideContrato}")
-    public ResponseEntity<Contrato> buscarPorId(@PathVariable UUID ideContrato) {
-        Contrato contrato = contratoService.buscarPorId(ideContrato);
+    public ResponseEntity<Contrato> buscarPorId(@PathVariable String ideContrato) {
+        Contrato contrato = contratoService.buscarPorId(UUID.fromString(ideContrato));
         return ResponseEntity.ok(contrato);
     }
 
@@ -37,8 +37,8 @@ public class ContratoController {
      * Exemplo de URL GET: /contrato/orgao/123e4567-e89b-12d3-a456-426614174000
      */
     @GetMapping("/orgao/{ideOrgao}")
-    public ResponseEntity<List<Contrato>> buscarPorOrgao(@PathVariable UUID ideOrgao) {
-        List<Contrato> contratos = contratoService.buscarPorOrgao(ideOrgao);
+    public ResponseEntity<List<Contrato>> buscarPorOrgao(@PathVariable String ideOrgao) {
+        List<Contrato> contratos = contratoService.buscarPorOrgao(UUID.fromString(ideOrgao));
 
         // Retorna 200 OK com a lista (mesmo que vazia)
         return ResponseEntity.ok(contratos);
