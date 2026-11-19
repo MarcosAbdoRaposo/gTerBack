@@ -12,7 +12,7 @@ public class Orgao {
     private java.util.UUID ideOrgao;
     @Column(nullable = false, length = 128)
     private String nomOrgao;
-    @Column(nullable = false, length = 14)
+    @Column(name = "NUM_CNPJ", nullable = false, length = 14)
     private String numCNPJ;
 
     public Orgao() {

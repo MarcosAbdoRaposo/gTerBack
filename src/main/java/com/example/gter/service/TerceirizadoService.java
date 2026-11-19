@@ -33,6 +33,13 @@ public class TerceirizadoService {
         return terceirizadoRepository.findByNomTerceirizadoContainingIgnoreCase(nome);
     }
 
+    public List<Terceirizado> buscarPorContrato(UUID ideContrato) {
+        return terceirizadoRepository.findDistinctByContrato(ideContrato);
+    }
+
+
+
+
     @Transactional
     public Terceirizado salvar(Terceirizado terceirizado) {
         if (terceirizado.getIdeTerceirizado() == null && terceirizadoRepository.existsByNumCPF(terceirizado.getNumCPF())) {

@@ -57,8 +57,8 @@ public class ContratoController {
     }
 
     @DeleteMapping("/{ideContrato}")
-    public ResponseEntity<Void> excluir(@PathVariable UUID ideContrato) {
-        contratoService.excluir(ideContrato);
+    public ResponseEntity<Void> excluir(@PathVariable String ideContrato) {
+        contratoService.excluir(UUID.fromString(ideContrato));
         return ResponseEntity.noContent().build();
     }
 }

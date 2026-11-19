@@ -11,7 +11,7 @@ public class Fornecedor {
     private UUID ideFornecedor;
     @Column(nullable = false, length = 128)
     private String nomFornecedor;
-    @Column(nullable = false, length = 14)
+    @Column(name = "NUM_CNPJ",nullable = false, length = 14)
     private String numCNPJ;
 
     public Fornecedor() {

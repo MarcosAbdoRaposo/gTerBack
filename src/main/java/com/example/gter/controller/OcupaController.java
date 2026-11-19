@@ -24,32 +24,32 @@ public class OcupaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ocupa> buscarPorId(@PathVariable UUID id) {
-        Ocupa ocupa = ocupaService.buscarPorId(id);
+    public ResponseEntity<Ocupa> buscarPorId(@PathVariable String id) {
+        Ocupa ocupa = ocupaService.buscarPorId(UUID.fromString(id));
         return ResponseEntity.ok(ocupa);
     }
 
     @GetMapping("/terceirizado/{ideTerceirizado}")
-    public ResponseEntity<List<Ocupa>> buscarPorTerceirizado(@PathVariable UUID ideTerceirizado) {
-        List<Ocupa> lista = ocupaService.buscarPorTerceirizado(ideTerceirizado);
+    public ResponseEntity<List<Ocupa>> buscarPorTerceirizado(@PathVariable String ideTerceirizado) {
+        List<Ocupa> lista = ocupaService.buscarPorTerceirizado(UUID.fromString(ideTerceirizado));
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/posto-trabalho/{idePostoTrabalho}")
-    public ResponseEntity<List<Ocupa>> buscarPorPostoTrabalho(@PathVariable UUID idePostoTrabalho) {
-        List<Ocupa> lista = ocupaService.buscarPorPostoTrabalho(idePostoTrabalho);
+    public ResponseEntity<List<Ocupa>> buscarPorPostoTrabalho(@PathVariable String idePostoTrabalho) {
+        List<Ocupa> lista = ocupaService.buscarPorPostoTrabalho(UUID.fromString(idePostoTrabalho));
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/terceirizado/{ideTerceirizado}/ativas")
-    public ResponseEntity<List<Ocupa>> buscarAtivasPorTerceirizado(@PathVariable UUID ideTerceirizado) {
-        List<Ocupa> lista = ocupaService.buscarAtivasPorTerceirizado(ideTerceirizado);
+    public ResponseEntity<List<Ocupa>> buscarAtivasPorTerceirizado(@PathVariable String ideTerceirizado) {
+        List<Ocupa> lista = ocupaService.buscarAtivasPorTerceirizado(UUID.fromString(ideTerceirizado));
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/posto-trabalho/{idePostoTrabalho}/ativas")
-    public ResponseEntity<List<Ocupa>> buscarAtivasPorPostoTrabalho(@PathVariable UUID idePostoTrabalho) {
-        List<Ocupa> lista = ocupaService.buscarAtivasPorPostoTrabalho(idePostoTrabalho);
+    public ResponseEntity<List<Ocupa>> buscarAtivasPorPostoTrabalho(@PathVariable String idePostoTrabalho) {
+        List<Ocupa> lista = ocupaService.buscarAtivasPorPostoTrabalho(UUID.fromString(idePostoTrabalho));
         return ResponseEntity.ok(lista);
     }
 
@@ -60,14 +60,14 @@ public class OcupaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Ocupa> atualizar(@PathVariable UUID id, @RequestBody Ocupa ocupa) {
-        Ocupa atualizada = ocupaService.atualizar(id, ocupa);
+    public ResponseEntity<Ocupa> atualizar(@PathVariable String id, @RequestBody Ocupa ocupa) {
+        Ocupa atualizada = ocupaService.atualizar(UUID.fromString(id), ocupa);
         return ResponseEntity.ok(atualizada);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable UUID id) {
-        ocupaService.excluir(id);
+    public ResponseEntity<Void> deletar(@PathVariable String id) {
+        ocupaService.excluir(UUID.fromString(id));
         return ResponseEntity.noContent().build();
     }
 }

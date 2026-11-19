@@ -27,8 +27,8 @@ public class OrgaoController {
     }
 
     @GetMapping("/{ideOrgao}")
-    public ResponseEntity<Orgao> buscarPorId(@PathVariable UUID ideOrgao) {
-        Orgao orgao = orgaoService.buscarPorId(ideOrgao);
+    public ResponseEntity<Orgao> buscarPorId(@PathVariable String ideOrgao) {
+        Orgao orgao = orgaoService.buscarPorId(UUID.fromString(ideOrgao));
         return ResponseEntity.ok(orgao);
     }
 
@@ -45,8 +45,8 @@ public class OrgaoController {
     }
 
     @DeleteMapping("/{ideOrgao}")
-    public ResponseEntity<Void> excluir(@PathVariable UUID ideOrgao) {
-        orgaoService.excluir(ideOrgao);
+    public ResponseEntity<Void> excluir(@PathVariable String ideOrgao) {
+        orgaoService.excluir(UUID.fromString(ideOrgao));
         return ResponseEntity.noContent().build();
     }
 }

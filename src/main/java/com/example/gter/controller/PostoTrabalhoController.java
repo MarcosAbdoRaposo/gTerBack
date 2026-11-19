@@ -26,15 +26,15 @@ public class PostoTrabalhoController {
     }
 
     @GetMapping("/contrato/{ideContrato}")
-    public ResponseEntity<List<PostoTrabalho>> listarPostoTrabalhoContrato(@PathVariable UUID ideContrato) {
-        List<PostoTrabalho> postos = postoTrabalhoService.listarPostoTrabalhoContrato(ideContrato);
+    public ResponseEntity<List<PostoTrabalho>> listarPostoTrabalhoContrato(@PathVariable String ideContrato) {
+        List<PostoTrabalho> postos = postoTrabalhoService.listarPostoTrabalhoContrato(UUID.fromString(ideContrato));
 
         return ResponseEntity.ok(postos);
     }
 
     @GetMapping("/{idePostoTrabalho}")
-    public ResponseEntity<PostoTrabalho> buscarPorId(@PathVariable UUID idePostoTrabalho) {
-        PostoTrabalho posto = postoTrabalhoService.buscarPorId(idePostoTrabalho);
+    public ResponseEntity<PostoTrabalho> buscarPorId(@PathVariable String idePostoTrabalho) {
+        PostoTrabalho posto = postoTrabalhoService.buscarPorId(UUID.fromString(idePostoTrabalho));
         return ResponseEntity.ok(posto);
     }
 
@@ -51,8 +51,8 @@ public class PostoTrabalhoController {
     }
 
     @DeleteMapping("/{idePostoTrabalho}")
-    public ResponseEntity<Void> excluir(@PathVariable UUID idePostoTrabalho) {
-        postoTrabalhoService.excluir(idePostoTrabalho);
+    public ResponseEntity<Void> excluir(@PathVariable String idePostoTrabalho) {
+        postoTrabalhoService.excluir(UUID.fromString(idePostoTrabalho));
         return ResponseEntity.noContent().build();
     }
 }

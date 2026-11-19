@@ -2,6 +2,9 @@ package com.example.gter.repository;
 
 import com.example.gter.model.Terceirizado;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,5 +23,16 @@ public interface TerceirizadoRepository extends JpaRepository<Terceirizado, UUID
     // Busca por parte do nome ignorando maiúsculas/minúsculas
     List<Terceirizado> findByNomTerceirizadoContainingIgnoreCase(String nomTerceirizado);
 
+    @Query("""
+        SELECT t
+        FROM Terceirizado t
+        WHERE t.ideTerceirizado IN (
+            SELECT o.terceirizado.ideTerceirizado
+            FROM Ocupa o
+            WHERE o.postoTrabalho.contrato.ideContrato = :ideContrato
+        )
+        ORDER BY t.nomTerceirizado
+        """)
+    List<Terceirizado> findDistinctByContrato(@Param("ideContrato") UUID ideContrato);
 
 }

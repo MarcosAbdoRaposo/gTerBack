@@ -41,6 +41,14 @@ public class TerceirizadoController {
         return ResponseEntity.ok(lista);
     }
 
+    @GetMapping("/contrato/{ideContrato}")
+    public ResponseEntity<List<Terceirizado>> buscarPorContrato(@PathVariable UUID ideContrato) {
+        List<Terceirizado> lista = terceirizadoService.buscarPorContrato(ideContrato);
+        return ResponseEntity.ok(lista);
+    }
+
+
+
     @PostMapping
     public ResponseEntity<Terceirizado> salvar(@RequestBody Terceirizado terceirizado) {
         Terceirizado novoTerceirizado = terceirizadoService.salvar(terceirizado);

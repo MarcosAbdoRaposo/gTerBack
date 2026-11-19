@@ -14,7 +14,7 @@ public class Terceirizado {
     @Column(nullable = false, length = 50)
     private String nomTerceirizado;
 
-    @Column(nullable = false, length = 11, unique = true)
+    @Column(name="NUM_CPF", nullable = false, length = 11, unique = true)
     private String numCPF;
 
     @Column(nullable = false)
@@ -32,7 +32,7 @@ public class Terceirizado {
     @Column(nullable = false, length = 36)
     private String nomCidade;
 
-    @Column(nullable = false, length = 2)
+    @Column(name= "SIG_UF", nullable = false, length = 2)
     private String sigUF;
 
     @Column(nullable = false, length = 48)

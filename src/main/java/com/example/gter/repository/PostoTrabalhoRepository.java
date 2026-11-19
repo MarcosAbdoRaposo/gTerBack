@@ -15,4 +15,9 @@ public interface PostoTrabalhoRepository extends JpaRepository<PostoTrabalho, ja
 
     @Query("SELECT p FROM PostoTrabalho p WHERE p.contrato.ideContrato = :ideContrato ORDER BY p.nomPostoTrabalho ASC")
     public List<PostoTrabalho> listarPorContratoOrdenadoPorNome(@Param("ideContrato") java.util.UUID ideContrato);
+
+
+
+
+
 }
