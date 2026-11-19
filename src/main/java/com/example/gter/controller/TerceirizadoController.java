@@ -24,8 +24,8 @@ public class TerceirizadoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Terceirizado> buscarPorId(@PathVariable UUID id) {
-        Terceirizado terceirizado = terceirizadoService.buscarPorId(id);
+    public ResponseEntity<Terceirizado> buscarPorId(@PathVariable String id) {
+        Terceirizado terceirizado = terceirizadoService.buscarPorId(UUID.fromString(id));
         return ResponseEntity.ok(terceirizado);
     }
 
@@ -42,8 +42,8 @@ public class TerceirizadoController {
     }
 
     @GetMapping("/contrato/{ideContrato}")
-    public ResponseEntity<List<Terceirizado>> buscarPorContrato(@PathVariable UUID ideContrato) {
-        List<Terceirizado> lista = terceirizadoService.buscarPorContrato(ideContrato);
+    public ResponseEntity<List<Terceirizado>> buscarPorContrato(@PathVariable String ideContrato) {
+        List<Terceirizado> lista = terceirizadoService.buscarPorContrato(UUID.fromString(ideContrato));
         return ResponseEntity.ok(lista);
     }
 
@@ -56,14 +56,14 @@ public class TerceirizadoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Terceirizado> atualizar(@PathVariable UUID id, @RequestBody Terceirizado terceirizado) {
-        Terceirizado atualizado = terceirizadoService.atualizar(id, terceirizado);
+    public ResponseEntity<Terceirizado> atualizar(@PathVariable String id, @RequestBody Terceirizado terceirizado) {
+        Terceirizado atualizado = terceirizadoService.atualizar(UUID.fromString(id), terceirizado);
         return ResponseEntity.ok(atualizado);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable UUID id) {
-        terceirizadoService.deletar(id);
+    public ResponseEntity<Void> deletar(@PathVariable String id) {
+        terceirizadoService.deletar(UUID.fromString(id));
         return ResponseEntity.noContent().build();
     }
 }
