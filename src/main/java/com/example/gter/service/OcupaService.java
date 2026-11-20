@@ -25,7 +25,7 @@ public class OcupaService {
     }
 
     public List<Ocupa> buscarPorTerceirizado(UUID ideTerceirizado) {
-        return ocupaRepository.findByTerceirizadoIdeTerceirizado(ideTerceirizado);
+        return ocupaRepository.findByTerceirizadoIdeTerceirizadoOrderByDatInicioDesc(ideTerceirizado);
     }
 
     public List<Ocupa> buscarPorPostoTrabalho(UUID idePostoTrabalho) {

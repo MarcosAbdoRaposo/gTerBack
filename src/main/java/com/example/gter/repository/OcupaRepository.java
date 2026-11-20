@@ -6,7 +6,6 @@ import com.example.gter.model.Terceirizado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,7 +14,9 @@ public interface OcupaRepository extends JpaRepository<Ocupa, UUID> {
 
     // Busca todas as ocupações de um terceirizado (por objeto ou por ID)
     List<Ocupa> findByTerceirizado(Terceirizado terceirizado);
-    List<Ocupa> findByTerceirizadoIdeTerceirizado(UUID ideTerceirizado);
+
+    // Classificado por ordem
+    List<Ocupa> findByTerceirizadoIdeTerceirizadoOrderByDatInicioDesc(UUID ideTerceirizado);
 
     // Busca todas as ocupações de um posto de trabalho (por objeto ou por ID)
     List<Ocupa> findByPostoTrabalho(PostoTrabalho postoTrabalho);
