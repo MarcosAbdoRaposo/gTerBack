@@ -23,25 +23,25 @@ public class Terceirizado {
     @Column(nullable = false)
     private String codSexo;
 
-    @Column(nullable = false)
+    @Column(nullable = true, length=100)
     private String nomLogradouro;
 
-    @Column(length = 36)
+    @Column(nullable = true,length = 36)
     private String nomBairro;
 
-    @Column(nullable = false, length = 36)
+    @Column(nullable = true, length = 36)
     private String nomCidade;
 
-    @Column(name= "SIG_UF", nullable = false, length = 2)
+    @Column(name= "SIG_UF", nullable = true, length = 2)
     private String sigUF;
 
-    @Column(nullable = false, length = 48)
+    @Column(nullable = true, length = 48)
     private String nomPais;
 
-    @Column(length = 10)
+    @Column(nullable = true,length = 10)
     private String numCep;
 
-    @Column(name="DES_EMAIL",length=320)
+    @Column(name="DES_EMAIL",nullable = true,length=320)
     private String desEmail;
 
     public Terceirizado() {
