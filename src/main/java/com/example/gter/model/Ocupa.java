@@ -30,16 +30,27 @@ public class Ocupa {
     @Column
     private Date datFim;
 
+    @Column(nullable = true, name = "desLotacao", length = 128)
+    private String desLotacao;
+
+    @Column(nullable = true, name = "desLocalizacao", length = 128)
+    private String desLocalizacao;
+
+
+
     public Ocupa() {
     }
 
-    public Ocupa(UUID ideOcupa, Terceirizado terceirizado, PostoTrabalho postoTrabalho, String codSituacao, Date datInicio, Date datFim) {
+    public Ocupa(UUID ideOcupa, Terceirizado terceirizado, PostoTrabalho postoTrabalho, String codSituacao, Date datInicio, Date datFim, String desLotacao, String desLocalizacao) {
         this.ideOcupa = ideOcupa;
         this.terceirizado = terceirizado;
         this.postoTrabalho = postoTrabalho;
         this.codSituacao = codSituacao;
         this.datInicio = datInicio;
         this.datFim = datFim;
+        this.desLotacao = desLotacao;
+        this.desLocalizacao = desLocalizacao;
+
     }
 
     public UUID getIdeOcupa() {
