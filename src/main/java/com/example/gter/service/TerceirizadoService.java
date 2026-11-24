@@ -1,5 +1,6 @@
 package com.example.gter.service;
 
+import com.example.gter.exception.NaoEncontradoException;
 import com.example.gter.model.Terceirizado;
 import com.example.gter.repository.TerceirizadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class TerceirizadoService {
 
     public Terceirizado buscarPorCpf(String numCPF) {
         return terceirizadoRepository.findByNumCPF(numCPF)
-                .orElseThrow(() -> new RuntimeException("Terceirizado não encontrado com o CPF: " + numCPF));
+                .orElseThrow(() -> new NaoEncontradoException("Terceirizado não encontrado com o CPF: " + numCPF));
     }
 
     public List<Terceirizado> buscarPorNome(String nome) {

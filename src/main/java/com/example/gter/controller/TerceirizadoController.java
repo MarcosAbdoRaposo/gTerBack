@@ -1,5 +1,6 @@
 package com.example.gter.controller;
 
+import com.example.gter.exception.NaoEncontradoException;
 import com.example.gter.model.Terceirizado;
 import com.example.gter.service.TerceirizadoService;
 import org.springframework.beans.factory.annotation.Autowired;
