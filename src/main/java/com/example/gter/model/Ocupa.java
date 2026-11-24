@@ -108,4 +108,20 @@ public class Ocupa {
     public void setDatFim(Date datFim) {
         this.datFim = datFim;
     }
+
+    public String getDesLotacao() {
+        return desLotacao;
+    }
+
+    public void setDesLotacao(String desLotacao) {
+        this.desLotacao = desLotacao;
+    }
+
+    public String getDesLocalizacao() {
+        return desLocalizacao;
+    }
+
+    public void setDesLocalizacao(String desLocalizacao) {
+        this.desLocalizacao = desLocalizacao;
+    }
 }
